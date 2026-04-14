@@ -2,29 +2,30 @@
 
 import { useState } from 'react'
 
+import Tabs from '../ui/Tabs'
+
 interface Props {
+  label: string
   options: { value: string; label: string }[]
   views: Record<string, React.ReactNode>
 }
 
-export default function ListWithTabs({ options, views }: Props) {
+export default function ListWithTabs({ label, options, views }: Props) {
   const [activeTab, setActiveTab] = useState(options[0].value)
 
   return (
-    <div>
-      <div className="space-x-4">
-        {options.map((item) => (
-          <button
-            key={item.value}
-            onClick={() => setActiveTab(item.value)}
-            className={`rounded-lg border p-2 ${activeTab === item.value ? 'bg-amber-300' : ''} `}
-          >
-            {item.label}
-          </button>
-        ))}
+    <div className="flex flex-col gap-6">
+      <div className="flex items-center gap-6">
+        <h2 className="text-2xl font-bold">{label}</h2>
+
+        <Tabs
+          items={options}
+          activeItem={activeTab}
+          onSelect={(value) => setActiveTab(value)}
+        />
       </div>
 
-      <div className="mt-8">{views[activeTab]}</div>
+      <div>{views[activeTab]}</div>
     </div>
   )
 }

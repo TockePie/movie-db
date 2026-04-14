@@ -1,6 +1,6 @@
 import { TrendingItem } from '@/types/trending'
 
-import MovieCard from '../MovieCard'
+import MovieCard from '../ui/MovieCard'
 
 export default function MovieList({ movies }: { movies: TrendingItem[] }) {
   return (

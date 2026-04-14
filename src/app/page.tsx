@@ -21,11 +21,7 @@ export default async function Home() {
 
   return (
     <main className="mx-auto w-300 p-4">
-      <div className="space-y-6">
-        <h2 className="text-2xl font-bold">Trending</h2>
-
-        <ListWithTabs options={options} views={views} />
-      </div>
+      <ListWithTabs label="Trending" options={options} views={views} />
     </main>
   )
 }
