@@ -25,7 +25,7 @@ export default function ListWithTabs({ label, options, views }: Props) {
         />
       </div>
 
-      <div>{views[activeTab]}</div>
+      {views[activeTab]}
     </div>
   )
 }
